@@ -26,7 +26,7 @@ pipeline {
                 }
             }
         }
-        stage('tf-plan') {
+        stage('tf-apply') {
             steps {
                 dir("infra") {
                     echo "running Tf-apply"
