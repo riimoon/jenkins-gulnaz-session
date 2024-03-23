@@ -22,9 +22,4 @@ resource "aws_security_group" "allow-ssh" {
     cidr_blocks = ["76.245.194.245/32"]
 
   }
-  tags = {
-    Name    = "TestServer"
-    Env     = var.env
-    Purpose = var.purpose
-  }
 }
