@@ -1,6 +1,5 @@
 pipeline {
     agent any
-    
     options {
         ansiColor('xterm')
     }    
@@ -34,7 +33,7 @@ pipeline {
             steps {
                 dir("infra") {
                     echo "running Tf-apply"
-                    sh "terraform apply"
+                    sh "terraform apply -auto-approve"
                 }
             }
         }
