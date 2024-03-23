@@ -1,5 +1,6 @@
 pipeline {
     agent any
+    
     parameters {
         choice(
             choices: ['apply', 'destroy'],
@@ -8,6 +9,7 @@ pipeline {
         )
     }
 
+    stages {
         stage('tf-init') {
             steps {
                 dir('infra') {
@@ -41,7 +43,7 @@ pipeline {
         
         stage('tf-apply') {
             when {
-                expression {params.terraform == "apply"}
+                expression {params.terraform_ == "apply"}
             }
             steps {
                 dir('infra') {
@@ -50,6 +52,7 @@ pipeline {
                 }
             }
         }
+        
         stage('tf-destroy') {
             when {
                 expression {params.terraform_ == "destroy"}
@@ -61,8 +64,8 @@ pipeline {
                 }
             }
         }
-    
     }
+    
     post {
         success { 
             echo "The pipeline succeeded!"
@@ -74,3 +77,4 @@ pipeline {
             cleanWs()
         }
     }
+}
