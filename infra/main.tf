@@ -4,11 +4,7 @@ resource "aws_instance" "my-first-server" {
   key_name        = "aru@micr"
   subnet_id       = "subnet-0e2f266f9b67ec029"
   security_groups = [aws_security_group.allow-ssh.id]
-  tags = {
-    Name    = "TestServer"
-    Env     = var.env
-    Purpose = var.purpose
-  }
+
 }
 
 resource "aws_security_group" "allow-ssh" {
