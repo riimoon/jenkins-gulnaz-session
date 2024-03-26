@@ -78,6 +78,9 @@ pipeline {
         }
         always {
             cleanWs()
+            dir("${workspace_tmp}"){
+                deleteDir()
+            }
         }
     }
 }
