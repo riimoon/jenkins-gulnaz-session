@@ -4,6 +4,9 @@ pipeline {
       ansiColor('xterm')
     }
     
+    environment {
+        VAR1 = "terraform validate"
+    }
     parameters {
         choice(
             choices: ['apply', 'destroy'],
@@ -30,7 +33,7 @@ pipeline {
             steps {
                 dir('infra') {
                     echo "Running tf-validate"
-                    sh "terraform validate"
+                    sh "terraform ${VAR1}"
                 }
             }
         }
