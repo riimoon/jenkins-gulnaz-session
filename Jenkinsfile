@@ -33,7 +33,7 @@ pipeline {
             steps {
                 dir('infra') {
                     echo "Running tf-validate"
-                    sh "terraform ${VAR1}"
+                    sh "${VAR1}"
                 }
             }
         }
