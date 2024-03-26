@@ -28,6 +28,7 @@ pipeline {
                 }
             }
         }
+    }
         
         stage('tf-validate') {
             steps {
@@ -70,7 +71,13 @@ pipeline {
                 }
             }
         }
-    }
+
+        stage('check') {
+
+            steps {
+                    echo "Build URL $BUILD_URL"
+            }
+
     
     post {
         success { 
@@ -87,3 +94,4 @@ pipeline {
         }
     }
 }
+    
